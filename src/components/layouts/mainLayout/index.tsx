@@ -1,3 +1,4 @@
+import { useTransition, animated, config } from 'react-spring';
 import { useEffect, useState } from 'react';
 import { useAppDispatch, useAppSelector } from '@app/hooks';
 import {
@@ -16,8 +17,9 @@ import { SearchInput } from '@components/searchInput';
 import navItems from '@components/layouts/mainLayout/menuItems';
 import { getDefaultCoinIds, getDefaultCurrencies } from '@utils/coinsUtils';
 
-import styles from './mainLayout.module.scss';
+import layoutStyles from './mainLayout.module.scss';
 
+const REFRESH_TIME_MS = 5000;
 const coinIds = getDefaultCoinIds();
 const currencies = getDefaultCurrencies();
 
@@ -35,8 +37,11 @@ export const MainLayout = (): JSX.Element => {
 
   useEffect(() => {
     const interval = setInterval(
-      () => dispatch(fetchCoinsPricesAsync({ coinIds, currencies })),
-      5000
+      () =>
+        dispatch(
+          fetchCoinsPricesAsync({ coinIds, currencies, refreshing: true })
+        ),
+      REFRESH_TIME_MS
     );
 
     return () => clearInterval(interval);
@@ -51,33 +56,45 @@ export const MainLayout = (): JSX.Element => {
     dispatch(searchCoins(value));
   };
 
+  const transitions = useTransition(status === 'idle', {
+    from: { opacity: 0 },
+    enter: { opacity: 1 },
+    leave: { opacity: 0 },
+    config: config.gentle,
+  });
+
   return (
-    <div className={styles.container}>
-      <div className={styles.leftSidebar}>
+    <div className={layoutStyles.container}>
+      <div className={layoutStyles.leftSidebar}>
         <Nav navItems={navItems} />
       </div>
-      <div className={styles.content}>
+      <div className={layoutStyles.content}>
         <SearchInput
           placeholder="Search Coins"
           onChange={(e) => handleSearchInputChange(e.target.value)}
         />
         {status === 'loading' && (
-          <div className={styles.loader}>Loading...</div>
+          <div className={layoutStyles.loader}>Loading...</div>
         )}
 
         {status === 'searching' && (
-          <div className={styles.loader}>Searching...</div>
+          <div className={layoutStyles.loader}>Searching...</div>
         )}
 
-        {status === 'idle' && (
-          <CoinsList coins={searchTerm ? coinsSearchResults : coins} />
+        {transitions(
+          (styles, show) =>
+            show && (
+              <animated.div style={styles}>
+                <CoinsList coins={searchTerm ? coinsSearchResults : coins} />
+              </animated.div>
+            )
         )}
 
         {status === 'failed' && error && (
-          <div className={styles.errorMessage}>{error}</div>
+          <div className={layoutStyles.errorMessage}>{error}</div>
         )}
 
-        <div className={styles.addAssetCointainer}>
+        <div className={layoutStyles.addAssetCointainer}>
           <Button
             onClick={() => handleAddAssetClick()}
             disabled={status === 'loading'}
@@ -86,7 +103,7 @@ export const MainLayout = (): JSX.Element => {
           </Button>
         </div>
       </div>
-      <div className={styles.rightSidebar}></div>
+      <div className={layoutStyles.rightSidebar}></div>
     </div>
   );
 };
