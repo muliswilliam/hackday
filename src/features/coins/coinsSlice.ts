@@ -90,7 +90,15 @@ export const coinsSlice = createSlice({
           const searchResults = searchCoinFn(action.payload, state.searchTerm);
           state.searchResults = sortCoinsByName(searchResults);
         }
-        state.coinsPrices = action.payload;
+        const prices = sortCoinsByName(action.payload);
+
+        // Log latest coin data
+        for (const coin of prices) {
+          console.log(Date.now(), coin.id, coin.coinPriceUsd);
+        }
+        console.log('=============================');
+
+        state.coinsPrices = prices;
       })
       .addCase(fetchCoinsPricesAsync.rejected, (state, action) => {
         state.status = 'failed';
