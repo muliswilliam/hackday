@@ -3,6 +3,7 @@ import { ICoin } from '../components/coin/icoin';
 interface CoinIcon {
   coinId: string;
   name: string;
+  symbol: string;
   icon: string;
 }
 
@@ -10,21 +11,25 @@ const coinIcons: CoinIcon[] = [
   {
     coinId: 'bitcoin',
     name: 'Bitcoin',
+    symbol: 'BTC',
     icon: 'btc.svg',
   },
   {
     coinId: 'ethereum',
     name: 'Ethereum',
+    symbol: 'ETH',
     icon: 'eth.svg',
   },
   {
     coinId: 'binancecoin',
     name: 'Binance Coin',
+    symbol: 'BNB',
     icon: 'bnb.svg',
   },
   {
     coinId: 'basic-attention-token',
     name: 'Basic Attention Token',
+    symbol: 'BAT',
     icon: 'bat.svg',
   },
 ];

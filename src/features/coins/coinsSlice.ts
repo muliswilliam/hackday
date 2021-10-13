@@ -47,6 +47,7 @@ export const fetchCoinsPricesAsync = createAsyncThunk<
           id: key,
           coinIconUrl: coinIcon !== undefined ? coinIcon.icon : null,
           coinName: coinIcon !== undefined ? coinIcon.name : '',
+          coinSymbol: coinIcon !== undefined ? coinIcon.symbol : '',
           coinPriceUsd: _coin.usd,
           coinPriceBtc: _coin.btc,
         };
@@ -94,7 +95,7 @@ export const coinsSlice = createSlice({
 
         // Log latest coin data
         for (const coin of prices) {
-          console.log(Date.now(), coin.id, coin.coinPriceUsd);
+          console.log(Date.now(), coin.coinSymbol, coin.coinPriceUsd);
         }
         console.log('=============================');
 
