@@ -1,5 +1,5 @@
-import { Coin } from '../coin';
-import { ICoin } from '../coin/icoin';
+import { Coin } from '@components/coin';
+import { ICoin } from '@components/coin/icoin';
 
 import styles from './coinsList.module.scss';
 
