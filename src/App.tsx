@@ -1,4 +1,4 @@
-import { MainLayout } from './components/layouts/mainLayout';
+import { MainLayout } from '@components/layouts/mainLayout';
 
 import './scss/_global.scss';
 
