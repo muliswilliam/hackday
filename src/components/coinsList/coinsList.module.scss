@@ -1,0 +1,19 @@
+@import 'scss/variables';
+@import 'scss/functions';
+
+.coinList {
+  display: flex;
+  flex-direction: column;
+}
+
+.coinListItem {
+  margin-top: rem(16px);
+}
+
+.emptyState {
+  display: flex;
+  justify-content: center;
+  margin: rem(16px) 0;
+  color: $text02;
+  font-size: rem(16px);
+}

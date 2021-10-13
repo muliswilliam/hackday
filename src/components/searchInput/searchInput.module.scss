@@ -1,0 +1,22 @@
+@import 'scss/variables';
+@import 'scss/functions';
+
+.input {
+  background-color: $white;
+  height: rem(36px);
+  border: 1px solid $borderColor1;
+  border-radius: rem(12px);
+  padding: rem(10px) rem(39px);
+  color: $text01;
+  font-size: rem(13px);
+  width: 100%;
+  background-image: url('../../images/search.svg');
+  background-repeat: no-repeat;
+  background-size: auto;
+  background-position-y: center;
+  background-position-x: rem(10px);
+
+  &::placeholder {
+    color: $text02;
+  }
+}

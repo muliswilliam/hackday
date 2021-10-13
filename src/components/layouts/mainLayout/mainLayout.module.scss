@@ -1,0 +1,61 @@
+@import 'scss/variables';
+@import 'scss/functions';
+@import 'scss/mixins';
+
+$gap: rem(24px);
+
+.container {
+  display: flex;
+  flex-direction: row;
+  gap: $gap;
+  padding: rem(43px) rem(30px);
+
+  @include query(tablet) {
+    // Stack items on scaled version
+    flex-direction: column;
+    padding: rem(43px) rem(16px);
+  }
+}
+
+.leftSidebar {
+  flex-basis: 10%;
+  min-width: rem(180px);
+
+  @include query(tablet) {
+    // Hide Nav on scaled version
+    display: none;
+  }
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 65%;
+}
+
+.rightSidebar {
+  flex-basis: 25%;
+  min-height: rem(284px);
+  border: 2px solid $borderColor;
+  border-radius: rem(8px);
+}
+
+.addAssetCointainer {
+  margin-top: rem(16px);
+}
+
+.loader {
+  display: flex;
+  justify-content: center;
+  margin: rem(16px) 0;
+  color: $text02;
+  font-size: rem(16px);
+}
+
+.errorMessage {
+  display: flex;
+  justify-content: center;
+  margin: rem(16px) 0;
+  font-size: rem(16px);
+  color: red;
+}

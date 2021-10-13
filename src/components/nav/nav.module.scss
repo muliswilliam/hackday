@@ -1,0 +1,66 @@
+@import 'scss/variables';
+@import 'scss/functions';
+
+.nav {
+  background-color: $backgroundColor;
+}
+
+.navItemsContainer {
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+  padding: 0;
+  margin: 0;
+}
+
+.navItem {
+  list-style: none;
+  min-width: 100%;
+  border-radius: rem(8px);
+  background-color: $white;
+  display: flex;
+  align-items: center;
+  flex-grow: 1;
+  border: 1px solid transparent;
+
+  &:hover {
+    border-color: $borderColor;
+  }
+
+  a {
+    display: flex;
+    align-items: center;
+    flex-grow: 1;
+    height: 100%;
+    text-decoration: none;
+    color: $text02;
+    font-size: rem(13px);
+    font-weight: 600;
+    line-height: rem(20px);
+    padding: rem(12px) rem(14px);
+
+    img {
+      margin-right: rem(10px);
+    }
+  }
+}
+
+.navItemActive {
+  background: $activeMenuBackground;
+
+  &:hover {
+    border-color: transparent;
+  }
+
+  a {
+    color: $white;
+  }
+}
+
+.hr {
+  width: 100%;
+  height: 2px;
+  background-color: $borderColor;
+  border: none;
+  margin: rem(8) 0;
+}

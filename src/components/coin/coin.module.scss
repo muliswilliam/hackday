@@ -1,0 +1,47 @@
+@import 'scss/variables';
+@import 'scss/functions';
+
+.coinPrice {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width: 100%;
+}
+
+.coinDetails {
+  display: flex;
+  align-items: center;
+}
+
+.coinIcon {
+  width: rem(40px);
+  height: rem(40px);
+  margin-right: rem(8px);
+}
+
+.coinName,
+.coinPriceUsd {
+  font-weight: 400;
+  font-size: rem(13px);
+  line-height: rem(20px);
+  color: $text01;
+}
+
+.coinPrices {
+  display: flex;
+  flex-direction: column;
+  align-content: flex-end;
+}
+
+.coinPriceUsd {
+  text-align: right;
+}
+
+.coinPriceBtc {
+  display: inline-block;
+  text-align: right;
+  font-weight: 400;
+  font-size: rem(12px);
+  line-height: rem(20px);
+  color: $text03;
+}

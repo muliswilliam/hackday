@@ -1,0 +1,41 @@
+@import '../../scss/functions';
+@import '../../scss/variables';
+
+.button {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid $borderColor1;
+  background-color: $backgroundColor;
+  cursor: pointer;
+
+  &:hover {
+    border-color: $borderColor2;
+  }
+
+  span {
+    margin-left: rem(10px);
+  }
+}
+
+.small {
+  padding: rem(10px) rem(22px);
+  font-size: rem(13px);
+  font-weight: 600;
+  border-radius: rem(48px);
+}
+
+.medium {
+  padding: rem(14px) rem(26px);
+  font-size: rem(16px);
+  font-weight: 600;
+  border-radius: rem(48px);
+}
+
+.large {
+  padding: rem(16px) rem(28px);
+  font-size: rem(18px);
+  font-weight: 600;
+  border-radius: rem(48px);
+}

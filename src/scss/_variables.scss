@@ -1,0 +1,25 @@
+// Screen sizes
+$screen-sm: 576px;
+$screen-md: 768px;
+$screen-lg: 992px;
+$screen-xl: 1200px;
+$screen-xxl: 1300px;
+$screen-full: 1400px;
+
+// Colors
+$white: hsl(0, 0%, 100%);
+$backgroundColor: hsla(0, 0%, 100%, 1);
+$text01: hsla(210, 11%, 15%, 1);
+$text02: hsla(210, 9%, 31%, 1);
+$text03: hsla(210, 7%, 56%, 1);
+$borderColor: hsla(240, 33%, 94%, 1);
+$borderColor1: hsla(231, 14%, 72%, 1);
+$borderColor2: hsla(260, 30%, 72%, 1);
+$activeMenuBackground: linear-gradient(
+  128.18deg,
+  #a43ce4 13.94%,
+  #a72b6d 84.49%
+);
+
+// Typography
+$font-family-poppins: 'Poppins', sans-serif;
